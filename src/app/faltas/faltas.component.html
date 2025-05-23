@@ -1,0 +1,21 @@
+<div class = "superdiv">
+    <div class = "boxfaltas">
+        <span>
+            <p>
+                {{materiaNome}}
+            </p>
+            <p>
+                Faltas: {{countFaltas()}}
+            </p>
+        </span>
+        @for (falta of faltas; track falta.id) {
+            <li>
+                <p>
+                    {{formatarDataCompleta(falta.dataFalta)}}
+                </p>
+            </li>
+        } @empty {
+            <li>Você não tem faltas ainda.</li>
+        }
+    </div>
+</div>

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -21,6 +21,11 @@ type UserF = {
   userName : String,
   password : String
 }
+type PostMateria = {
+  nome: String,
+  maxFaltas: Number,
+  userId : Number
+}
 
 
 @Injectable({
@@ -30,7 +35,9 @@ export class HttpService {
 
   constructor(private http: HttpClient) {}
   url = `http://localhost:5145`
-
+  userId: number = 0;
+  materiaId: number = 0;
+  materiaNome = "";
 
   postUser(user : UserCreateReq): Observable<any>{
       let urlX: string = this.url + `/api/User`;
@@ -49,5 +56,43 @@ export class HttpService {
         password : user.password
       }
       return this.http.post(urlX, userF);
+  }
+
+  setUserId(userId: number){
+    this.userId = userId;
+  }
+  setMateriaId(materiaId: number){
+    this.materiaId = materiaId;
+  }
+  setMateriaNome(materiaNome : string){
+    this.materiaNome = materiaNome;
+  }
+  getMateriaNome(){
+    return this.materiaNome;
+  }
+
+  getMaterias(): Observable<any>{
+    let urlX : string = this.url + `/api/Materia`;
+    let params = new HttpParams()
+      .set('userId', this.userId);
+    return this.http.get(urlX, { params });
+  }
+
+  postMateria(nome: String): Observable<any>{
+    let urlX : string = this.url + `/api/Materia`;
+    let post : PostMateria = {
+      nome : nome,
+      maxFaltas : 0,
+      userId : this.userId 
+    }
+    return this.http.post(urlX, post);
+  }
+
+  getFaltas(): Observable<any>{
+    let urlX : string = this.url + `/api/Falta`;
+     let params = new HttpParams()
+      .set('userId', this.userId)
+      .set('materiaId', this.materiaId);
+    return this.http.get(urlX, {params});
   }
 }

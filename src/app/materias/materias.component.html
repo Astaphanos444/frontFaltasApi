@@ -1,0 +1,20 @@
+<div class="superdiv">
+    <div class="form">
+        <div class = "newMateria">
+            <input type="text" id="newMateria" [(ngModel)]="newMateria" name="newMateria" placeholder="Nova Materia"/>
+            <span (click)="newMateriaf()">AddMateria</span>
+        </div>
+        <div class="materias">
+            @for (materia of materias; track materia.id) {
+                <li (click) ="pagFaltasMateria(materia.id, materia.nome)">
+                    <p>
+                        {{materia.nome}}
+                    </p>
+                </li>
+            } @empty {
+                <li>Você não tem matérias ainda.</li>
+            }
+        </div>
+
+    </div>
+</div>

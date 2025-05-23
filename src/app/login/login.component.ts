@@ -30,7 +30,8 @@ export class LoginComponent {
 
     this.request.getLoginUser(user).subscribe({
       next: (data: any) => {
-        this.router.navigate(['app']);
+        this.request.setUserId(data.id);
+        this.router.navigate(['materias']);
       },
       error: (error: any) => {
         this.errorMessage = 'Invalid credentials';
