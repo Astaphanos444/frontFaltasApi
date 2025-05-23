@@ -60,4 +60,15 @@ export class MateriasComponent implements OnInit {
     this.request.setMateriaNome(materiaNomef);
     this.router.navigate(['faltas']);
   }
+
+  deleteMateria(materiaId: any){
+    this.request.deleteMateria(materiaId).subscribe({
+        next: (data: any) => {
+          this.populingMaterias();
+        },
+        error: (err: any) => {
+          console.log('error');
+        }
+      });
+  }
 }

@@ -43,16 +43,37 @@
     
             list-style-type: none;
 
-            li{
-                border: 2px solid black;
-                padding: 10px;
-                border-radius: 15px;
-                margin-bottom: 10px;
-            }
-            li:hover{
-                cursor: pointer;
-                background-color: blue;
-                color: white;
+            div{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
+
+                li{
+                    width: 100%;
+                    border: 2px solid black;
+                    padding: 10px;
+                    border-radius: 15px;
+                    margin-bottom: 10px;
+                }
+                li:hover{
+                    cursor: pointer;
+                    background-color: blue;
+                    color: white;
+                }
+                .delBtn{
+                    height: 50px;
+                    padding: 10px;
+
+                    border: 2px solid black;
+                    border-radius: 100px;
+                }
+                .delBtn:hover{
+                    background-color: red;
+                    color: white;
+                     cursor: pointer;
+                }
+
             }
 
         }

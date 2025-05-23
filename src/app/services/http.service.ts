@@ -115,4 +115,11 @@ export class HttpService {
       .set('faltaId', faltaId);
     return this.http.delete(urlX, {params});
   }
+  deleteMateria(materiaId:any): Observable<any>{
+     let urlX : string = this.url + `/api/Materia`;
+     let params = new HttpParams()
+      .set('materiaId', materiaId)
+      .set('userId', this.userId);
+    return this.http.delete(urlX, {params});
+  }
 }

@@ -6,11 +6,14 @@
         </div>
         <div class="materias">
             @for (materia of materias; track materia.id) {
-                <li (click) ="pagFaltasMateria(materia.id, materia.nome)">
-                    <p>
-                        {{materia.nome}}
-                    </p>
-                </li>
+                <div>
+                    <li (click) ="pagFaltasMateria(materia.id, materia.nome)">
+                        <p>
+                            {{materia.nome}}
+                        </p>
+                    </li>
+                    <button (click)="deleteMateria(materia.id)" class = "delBtn">Del</button>
+                </div>
             } @empty {
                 <li>Você não tem matérias ainda.</li>
             }
