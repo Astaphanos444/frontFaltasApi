@@ -1,5 +1,6 @@
 <div class = "superdiv">
     <div class = "boxfaltas">
+        <button class = "voltarBtn"routerLink="/materias">Voltar</button>
         <span>
             <p>
                 {{materiaNome}}
@@ -7,15 +8,20 @@
             <p>
                 Faltas: {{countFaltas()}}
             </p>
+            <span class = "btnAddFalta" (click)="postNewFalta()">
+                AddFalta
+            </span>
         </span>
-        @for (falta of faltas; track falta.id) {
-            <li>
-                <p>
-                    {{formatarDataCompleta(falta.dataFalta)}}
-                </p>
-            </li>
-        } @empty {
-            <li>Você não tem faltas ainda.</li>
-        }
+        <div class = "flexFaltas">
+            @for (falta of faltas; track falta.id) {
+                <li (click) = "deleteFalta(falta.id)">
+                    <p>
+                        {{formatarDataCompleta(falta.dataFalta)}}
+                    </p>
+                </li>
+            } @empty {
+                <li>Você não tem faltas ainda.</li>
+            }
+        </div>
     </div>
 </div>

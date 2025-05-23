@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../services/http.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 type Faltas = {
     id: number,
@@ -9,7 +9,7 @@ type Faltas = {
 
 @Component({
   selector: 'app-faltas',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './faltas.component.html',
   styleUrl: './faltas.component.scss'
 })
@@ -55,5 +55,27 @@ export class FaltasComponent implements OnInit {
   countFaltas(){
     this.totalFaltas = this.faltas.length;
     return this.totalFaltas;
+  }
+
+  postNewFalta(){
+    this.request.postNewFalta().subscribe({
+      next: (data: any) => {
+        this.populingFaltas();
+      },
+      error: (err: any) => {
+        console.log('error');
+      }
+    });
+  }
+
+  deleteFalta(faltaId: any){
+    this.request.deleteFalta(faltaId).subscribe({
+      next: (data: any) => {
+        this.populingFaltas();
+      },
+      error: (err: any) => {
+        console.log('error');
+      }
+    });
   }
 }

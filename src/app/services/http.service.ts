@@ -26,6 +26,10 @@ type PostMateria = {
   maxFaltas: Number,
   userId : Number
 }
+type NewFalta = {
+  userId: Number,
+  materiaId: Number
+}
 
 
 @Injectable({
@@ -70,6 +74,15 @@ export class HttpService {
   getMateriaNome(){
     return this.materiaNome;
   }
+  
+  postNewFalta(): Observable<any>{
+    let urlX : string = this.url + `/api/Falta`;
+    let post: NewFalta = {
+      userId: this.userId,
+      materiaId: this.materiaId
+    }
+    return this.http.post(urlX, post);
+  }
 
   getMaterias(): Observable<any>{
     let urlX : string = this.url + `/api/Materia`;
@@ -94,5 +107,12 @@ export class HttpService {
       .set('userId', this.userId)
       .set('materiaId', this.materiaId);
     return this.http.get(urlX, {params});
+  }
+
+  deleteFalta(faltaId: any): Observable<any>{
+     let urlX : string = this.url + `/api/Falta`;
+     let params = new HttpParams()
+      .set('faltaId', faltaId);
+    return this.http.delete(urlX, {params});
   }
 }
