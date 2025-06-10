@@ -2,7 +2,9 @@
     <div class="form">
         <div class = "newMateria">
             <input type="text" id="newMateria" [(ngModel)]="newMateria" name="newMateria" placeholder="Nova Materia"/>
-            <span (click)="newMateriaf()">+</span>
+            <span (click)="newMateriaf()">
+                    <mat-icon>add</mat-icon>
+            </span>
         </div>
         <div class="materias">
             @for (materia of materias; track materia.id) {
@@ -12,10 +14,12 @@
                             {{materia.nome}}
                         </p>
                     </li>
-                    <button (click)="deleteMateria(materia.id)" class = "delBtn">Del</button>
+                    <button (click)="deleteMateria(materia.id)" class = "delBtn" mat-icon-button>
+                        <mat-icon>delete</mat-icon>
+                    </button>
                 </div>
             } @empty {
-                <li>Você não tem matérias ainda.</li>
+                <li class="noMat">Você não tem matérias ainda.</li>
             }
         </div>
 

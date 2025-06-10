@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 type Materia = {
   id: Number,
@@ -12,7 +13,7 @@ type Materia = {
 
 @Component({
   selector: 'app-materias',
-  imports: [FormsModule],
+  imports: [FormsModule, MatIconModule],
   templateUrl: './materias.component.html',
   styleUrl: './materias.component.scss'
 })
@@ -46,6 +47,7 @@ export class MateriasComponent implements OnInit {
     this.request.postMateria(this.newMateria).subscribe({
         next: (data: any) => {
           this.populingMaterias();
+          this.newMateria = '';
         },
         error: (err: any) => {
           console.log('error');

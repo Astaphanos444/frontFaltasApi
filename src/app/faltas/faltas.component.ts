@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { Router, RouterLink } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+
 
 type Faltas = {
     id: number,
@@ -9,7 +11,7 @@ type Faltas = {
 
 @Component({
   selector: 'app-faltas',
-  imports: [RouterLink],
+  imports: [RouterLink, MatIconModule],
   templateUrl: './faltas.component.html',
   styleUrl: './faltas.component.scss'
 })
