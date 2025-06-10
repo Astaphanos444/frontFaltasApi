@@ -7,7 +7,7 @@
     justify-content: center;
 
     .formBorder{
-        border: 2px solid black;
+        border: 1px solid rgb(255, 162, 216);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -15,11 +15,11 @@
 
         padding: 50px 100px;
         border-radius: 2px;
-        box-shadow: white 1px 1px 5px 5px;
+        //box-shadow: white 1px 1px 5px 5px;
     }
 
     input{
-        border: 2px solid black;
+        border: 2px solid rgb(248, 132, 252);
         padding: 5px;
         border-radius: 5px;
         font-weight: 700;
@@ -28,7 +28,7 @@
 
     label{
         margin-top: 30px;
-        color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
         font-size: large;
         font-weight: 700;
     }
@@ -37,19 +37,20 @@
         margin: 10px;
         padding: 10px;
 
-        background-color: rgba(0, 138, 0, 0.466);
-        border: 2px solid green;
+        background-color: rgba(77, 37, 60, 0.466);
+        border: 2px solid rgb(73, 0, 49);
         border-radius: 30px;
         font-weight: 700;
-        color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
     }
     button:hover{
-        background-color: green;
+        //background-color: green;
+        border: 2px solid rgb(255, 0, 170);
         cursor: pointer;
     }
 
     .forgotPass{
-        color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
         font-size: small;
         margin-top: 15px;
         font-weight: 700;

@@ -2,7 +2,7 @@
     <div class="form">
         <div class = "newMateria">
             <input type="text" id="newMateria" [(ngModel)]="newMateria" name="newMateria" placeholder="Nova Materia"/>
-            <span (click)="newMateriaf()">AddMateria</span>
+            <span (click)="newMateriaf()">+</span>
         </div>
         <div class="materias">
             @for (materia of materias; track materia.id) {

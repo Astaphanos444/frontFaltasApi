@@ -6,7 +6,7 @@
     justify-content: center;
 
     .form{
-        border: 2px solid black ;
+        border: 2px solid rgb(248, 132, 252);
         border-radius: 15px;
         padding: 15px;
 
@@ -18,26 +18,33 @@
             display: flex;
             gap: 10px;
             input{
-                border: 2px solid black;
+                border: 2px solid rgb(248, 132, 252);
                 border-radius: 15px;
                 padding: 15px;
                 font-weight: 700;
             }
             span{
-                border: 2px solid black;
-                border-radius: 15px;
+                border: 2px solid rgb(140, 0, 145);
+                background-color: rgb(70, 0, 35);
+                border-radius: 100px;
+                height: 10px;
                 padding: 15px;
                 font-weight: 700;
+                color: white;
+                
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
             span:hover{
-                background-color: blue;
-                color: white;
+                border: 2px solid rgb(255, 143, 199);
+                color: rgb(246, 149, 255);
                 cursor: pointer;
             }
         }
 
         .materias{
-            border: 2px solid black;
+            border: 2px solid rgb(140, 0, 145);
             border-radius: 15px;
             padding: 20px;
     
@@ -51,21 +58,26 @@
 
                 li{
                     width: 100%;
-                    border: 2px solid black;
+                    border: 2px solid rgb(140, 0, 145);
+                    background-color: rgb(37, 0, 41);
                     padding: 10px;
                     border-radius: 15px;
                     margin-bottom: 10px;
+                    color: white;
                 }
                 li:hover{
                     cursor: pointer;
-                    background-color: blue;
-                    color: white;
+                    background-color: rgb(100, 0, 109);
                 }
                 .delBtn{
-                    height: 50px;
+                    height: 40px;
                     padding: 10px;
 
-                    border: 2px solid black;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    border: 2px solid rgb(140, 0, 145);
                     border-radius: 100px;
                 }
                 .delBtn:hover{
