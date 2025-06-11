@@ -42,7 +42,7 @@ export class FaltasComponent implements OnInit {
       }
     });
   }
-  
+  /*
   formatarDataCompleta(dataStr: string): string {
     const corrigida = dataStr.replace(/(\.\d{3})\d+/, '$1');
     const data = new Date(corrigida);
@@ -51,6 +51,23 @@ export class FaltasComponent implements OnInit {
       month: '2-digit',
       hour: '2-digit',
       minute: '2-digit',
+    });
+  }
+  */
+  formatarDataHora(dataStr: string): string {
+    const corrigida = dataStr.replace(/(\.\d{3})\d+/, '$1');
+    const data = new Date(corrigida);
+    return data.toLocaleString('pt-BR', {
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+  }
+  formatarDataDia(dataStr: string): string {
+    const corrigida = dataStr.replace(/(\.\d{3})\d+/, '$1');
+    const data = new Date(corrigida);
+    return data.toLocaleString('pt-BR', {
+      day: '2-digit',
+      month: '2-digit',
     });
   }
 
@@ -79,5 +96,14 @@ export class FaltasComponent implements OnInit {
         console.log('error');
       }
     });
+  }
+
+  faltaNumber(faltaId: any, falta: any){
+    for(let falta of this.faltas){
+      if(falta.id == faltaId){
+        return this.faltas.indexOf(falta) + 1;
+      }
+    }
+    return 0;
   }
 }

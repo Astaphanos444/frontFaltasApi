@@ -18,9 +18,13 @@
         </span>
         <div class = "flexFaltas">
             @for (falta of faltas; track falta.id) {
-                <li (click) = "deleteFalta(falta.id)">
+                <li class="faltasz"(click) = "deleteFalta(falta.id)">
+                    <p class="faltasIndex">
+                        {{ faltaNumber(falta.id, falta) }}
+                    </p>
                     <p>
-                        {{formatarDataCompleta(falta.dataFalta)}}
+                        {{ formatarDataHora(falta.dataFalta) }},
+                        {{ formatarDataDia(falta.dataFalta) }}
                     </p>
                 </li>
             } @empty {
